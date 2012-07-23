@@ -1,0 +1,124 @@
+
+/***** TYPOGRAPHY AND LINKS *****/
+body, address, dd, dl, hr, p, form { font-family: "Trebuchet MS", Verdana, Tahoma, Arial, Sans-serif; margin: 2px; padding: 0; }
+h1, h2, h3, h4, h5, h6 { font-family: Georgia, Times, Verdana, Tahoma, Arial, Sans-serif; margin: 0; padding-left: 5px; color: #61574a; }
+
+h1 { font-size: 24px; margin-bottom: 8px;}
+h2 { font-size: 18px; margin-bottom: 8px;}
+h3 { font-size: 14px; }
+h4 { font-size: 12px; }
+
+a:link, a:visited { text-decoration: none; color: #574f4b; }
+a:hover { text-decoration: underline; color: #660000; }
+p { padding: 10px; }
+blockquote { margin: 15px 30px 10px 30px; padding: 0 20px 10px 20px; border-left: 2px solid #574f4b; border-right: 2px solid #574f4b; }
+iframe {border: 2px solid #BF8941;}
+
+/***** HEADER *****/
+#header { float: left; width: 990px; height: 175px; background: #660000 url(../images/header.jpg) no-repeat; padding: 0; margin: 0 auto 0 auto; }
+#header h1 { padding: 0; margin: 45px 15px 0 ; font-family: Times New Roman, Georgia, Sans-serif; font-size: 36px; font-variant: small-caps; line-height: 38px; text-align: center; }
+#header h1 a { text-decoration: none; color: #eae7b3; text-align: center; }
+#header h1 a:hover { text-decoration: none; color: #eae7b3; }
+#header h2 {text-align: center; color: #d0d6a2; font-size: 22px;}
+#header .description { margin: 10px 0 0 0; padding: 0; font-size: 12px; font-weight: bold; font-style: italic; color: #eae7b3; text-align: center;  }
+#banner {margin: 20px auto; text-align: center;}
+
+/***** HORIZONTAL MENU *****/
+.menu  { float: left; width: 953px; height: 30px; margin-left: 19px; padding: 0; display: inline; background: url(../images/menu_bg.gif) no-repeat; border-top: #61574a 3px double; text-align: center;}
+.menu ul { width: 100%; margin: 0; padding: 6px 0; list-style: none; text-align:center;}
+.menu ul li { display: inline; margin: 0px; }
+.menu ul li { padding: 0 0 0 10px; text-decoration: none; color: #000000; font-family: Times New Roman, Georgia, Sans-serif; font-variant: small-caps; font-weight: bold; font-size: 16px; }
+.menu ul li a {color: #000000; font-size: 18px;}
+.menu ul li a:hover { color: #660000; text-decoration: underline; }
+
+/***** SIDEBAR *****/
+#left_sidebar h2 { color: #eae7b3; font-family: Times New Roman, Georgia, Verdana, Tahoma, Trebuchet MS, Sans-Serif; font-size: 14px; font-variant: small-caps; font-weight: bold; margin: 15px auto 10px auto; padding: 3px; border: #000 1px solid; text-align: center; background: url(../images/sidebar_head.gif); }
+#left_sidebar ul li a:hover { color: #660000; }
+#left_sidebar a.title{ color: #6b6b47; padding: 0px; margin: 0px; }
+#left_sidebar ul li a { display: inline; font-size: 11px; font-family: Verdana, Times, Sans-Serif; color: #544b40; text-decoration: none; margin: 0; padding: 0; }
+#left_sidebar ul li { display: block; padding: 0; margin: 0px; font-size: 10px; color: #6b6b47; }
+#left_sidebar ul { margin:0 0 0 10px; }
+#left_sidebar { width: 160px; float: left; margin: 5px 0 20px 35px; padding: 10px auto 0 auto; }
+#left_sidebar ul { list-style: none; margin: 0 0 5px 15px; padding: 0; }
+.welcome {margin-top: 5px; text-align: center;}
+
+/***** MAIN CONTENT *****/
+body { margin: 0; font-size: 14px; text-align: center; vertical-align: top; background: #333; color: #544b40; }
+#wrapper { margin: 0 auto 0 auto; width: 990px; text-align: left; }
+#main_content { background: #f1efe4 url(../images/content_bg.jpg); float: left; margin: 0 auto; padding: 0; width: 990px; }
+#container { float: left; width: 720px; margin: 5px 0 0 20px; padding: 10px; border-left: #dcd7bc 1px solid;  border-top: none; border-bottom: none; }
+#container .header {text-align: center; margin-left: -50px;}
+#container .address {text-align: center; margin-left: -50px;}
+#container_wide { float: left; width: 900px; margin: 0px 0 0 30px; padding: 5px 5px 0 7px; }
+.class_info {background-color: #eae7b3; border: 2px solid #a7a370; margin: 10px; padding:4px; }
+.class_info h2 {text-align: center;}
+.class_info li {list-style: none;}
+.edit {float: right; padding-top: 4px;}
+.fees .box {margin-left: 50px; margin-bottom: 20px; width: 50%;}
+.help {margin: 0; padding: 0; border: 0; position: absolute;}
+.jobs {padding-top: 20px;}
+.legend div {vertical-align: top;}
+.my_sched div {display: inline-block; padding: 8px 0; border-bottom: 1px solid black;}
+.my_sched h2 {margin-top: 15px;}
+.my_sched .name {width: 300px;}
+.my_sched .prof {width: 200px;}
+.my_sched .room {width: 100px;}
+.my_sched .time {width: 100px;}
+.profile li {list-style: none;}
+.profile label {width: 200px; display: inline-block; text-align: right; font-weight: bold; padding-right: 10px; margin: 8px 0;}
+.schedule {background: #eae7b3; border: 1px solid #a7a370; padding: 1px; border-spacing: 2px; margin: 16px 0;}
+.schedule .class {line-height:11px; height: 52px; display: inline-block; overflow: hidden; border: 1px solid black; font-size:11px; margin: 2px 0; padding: 3px 0 3px 3px;}
+.schedule .beg {color: green; font-weight: bold; border:#a7a370 solid 2px;}
+.schedule .int {color: darkblue; font-weight: bold;border:#a7a370 solid 2px;}
+.schedule .adv {color: red; font-weight: bold;border:#a7a370 solid 2px;}
+.schedule .music {border: 2px solid blue;}
+.schedule .europ {border: 2px solid darkgreen;}
+.schedule .meast {border: 2px solid red;}
+.schedule .mark {float:right; line-height:8px; margin: -4px -2px 0 0; z-index:1}
+.schedule .th {border: 1px solid #a7a370; padding: 3px; display: inline-block; width: 80px; height: 52px; overflow: hidden; clear: right; margin: 2px 0;}
+.schedule .time {width: 86px; font-weight: bold; display: inline-block; text-align: center;}
+.schedule .title {height: 34px; overflow: hidden;}
+.schedule .user {font-style: italic;}
+.schedule .hour {display: inline-block; width: 64px; border-left: solid black 1px;}
+.staff, .bio {background: #efe8cb; margin: 10px; padding: 10px; border: 3px solid #dcd5a6;}
+.staff h1 {text-align: center; }
+.staff label {width: 150px; text-align: right; display: inline-block; font-weight: bold; margin-right: 10px;}
+.teachers p {line-height: 20px; margin-top: -10px; margin-left: 40px;}
+
+/***** FORMS *****/
+.button {background-image: url('../images/menu_bg.gif'); font-weight: bold;}
+.form li {list-style: none; margin:5px;}
+.form label {width: 150px; display: inline-block; text-align: right; padding: 10px; vertical-align: top;}
+.form input {width: 250px; padding: 5px;}
+.form .number {width: 90px;}
+.form select {width: 264px; margin: 5px 0px;}
+.form textarea {height: 200px; width:258px;}
+.registration li {font-size: 14px; margin: 4px;}
+.remember input {width: 15px; }
+
+/***** NAVIGATION *****/
+.navigation { padding: 15px 0 15px 10px; font-size: 9px; font-weight: bold; line-height: 18px; }
+
+/***** FOOTER *****/
+#footer { clear: both; float: left; width: 990px; height: 55px; margin-top: 10px; padding: 0; background: url(../images/footer.jpg) no-repeat; }
+#footer p { font-size: 9px; line-height: 18px; padding: 0 10px 0 10px; text-align: center; color: #544b40; }
+#footer a { color: #6b6b47; }
+
+/***** BOXES *****/
+.box { padding: 10px 20px 10px 40px; margin-bottom: 10px; }
+.warning { background: #ffffdf url('../images/icons/exclamation.png') no-repeat 10px center; border: 1px solid #efebae; }
+.error { background: #ffeff0 url('../images/icons/error.png') no-repeat 10px center; border: 1px solid #ffcbce; }
+.attention { background: #eff8ff url('../images/icons/information.png') no-repeat 10px center; border: 1px solid #cfe9ff; }
+.success { background: #f6ffef url('../images/icons/accept.png') no-repeat 10px center; border: 1px solid #cefeaa; }
+.info { background: #eae7b3 ; border: 1px solid #a7a370; }
+
+/***** SPECIFIC CATEGORIES *****/
+.bold {font-weight: bold;}
+.center {margin: 0 auto; text-align: center;}
+.inline {display: inline-block; margin-left: 15px;}
+.right {text-align: right;}
+.float_right {float: right;}
+.float_left {float: left}
+
+
+iframe input {border: purple 5px solid;}
