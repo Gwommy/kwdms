@@ -7,11 +7,11 @@ require_once('config.php');
 
 class Database {
     private static $instance;
-    private static $PDO;
+    private $PDO;
 
     // Select and connect to the database
     private function __construct() {
-        self::$PDO = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+        $this->PDO = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
     }
     
     public static function &getInstance() {
@@ -430,7 +430,7 @@ class Database {
 
     // Use this function to call any query
     public function query($sql, array $parameters = array()) {
-        $statement = self::$PDO->prepare($sql);
+        $statement = $this->PDO->prepare($sql);
         $success = $statement->execute($parameters);
         
         if (!$success) throw new Exception('Query failed: '.$sql.' with parameters: '.print_r ($parameters, true));
