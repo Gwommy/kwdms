@@ -7,10 +7,11 @@ require_once('config.php');
 
 class Database {
     private static $instance;
+    private static $PDO;
 
     // Select and connect to the database
     private function __construct() {
-        $this->connection = @mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME) OR die('Unable to connect to database!');
+        self::$PDO = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
     }
     
     public static function &getInstance() {
@@ -47,24 +48,17 @@ class Database {
     // Returns all kinds of class information for scheduled classes in a particular KWDS
     public function get_class_info($kwds) {
         return $this->query(
-            "SELECT `class`.`name` AS ClassName, `user`.`id` AS UserID, `title`.`name` AS Title, `sca_first` AS SCAFirst,
-                `sca_last` AS SCALast, `user`.`first` AS MundaneFirst, `user`.`last` AS MundaneLast, `room`.`name` AS RoomName,
-                `room`.`id` AS RoomID, `class`.`description` AS ClassDescription, `day`, `hours`, `type_id`,
-                `difficulty_id` AS DifficultyID, `aerobic_id` AS AerobicID, `era_id` AS EraID, `prefix`.`name` AS PrefixName
+            "SELECT `class`.`name` AS `ClassName`, `user`.`id` AS `UserID`, `title`.`name` AS `Title`, `user`.`sca_first` AS `SCAFirst`,
+                `user`.`sca_last` AS `SCALast`, `user`.`first` AS `MundaneFirst`, `user`.`last` AS `MundaneLast`, `room`.`name` AS `RoomName`,
+                `room`.`id` AS `RoomID`, `class`.`description` AS `ClassDescription`, `class`.`day`, `class`.`hours`, `class`.`type_id`,
+                `class`.`difficulty_id` AS `DifficultyID`, `class`.`aerobic_id` AS `AerobicID`, `class`.`era_id` AS `EraID`, `prefix`.`name` AS `PrefixName`
             FROM `class`
-            LEFT JOIN `aerobic` ON `class`.`aerobic_id` = `aerobic`.`id`
-            LEFT JOIN `difficulty` ON `class`.`difficulty_id` = `difficulty`.`id`
-            LEFT JOIN `era` ON `class`.`era_id` = `era`.`id`
-            LEFT JOIN `kingdom` ON `class`.`kingdom_id` = `kingdom`.`id`
             LEFT JOIN `prefix` ON `class`.`prefix_id` = `prefix`.`id`
             LEFT JOIN `room` ON `class`.`room_id` = `room`.`id`
             LEFT JOIN `title` ON `class`.`title_id` = `title`.`id`
-            LEFT JOIN `type` ON `class`.`type_id` = `type`.`id`
             LEFT JOIN `user` ON `class`.`user_id` = `user`.`id`
-            LEFT JOIN `group` ON `user`.`group_id` = `group`.`id`
-            WHERE `class`.`kwds_id`='$kwds'
-            ORDER BY `class`.`name`"
-        );
+            WHERE `class`.`kwds_id` = ?
+            ORDER BY `class`.`name`", $kwds);
     }
 
     // Returns all kinds of class information for all classes in a particular KWDS
@@ -435,22 +429,14 @@ class Database {
     }
 
     // Use this function to call any query
-    public function query($query_string) {
-        $result = mysqli_query($this->connection, $query_string) or die('Error is query: ' . $query_string . '.' . mysql_error());       
-
-        if ($result === TRUE || $result === FALSE) return $result; //Boolean on DML-type queries
+    public function query($sql, array $parameters = array()) {
+        $statement = self::$PDO->prepare($sql);
+        $success = $statement->execute($parameters);
         
-        //Results are null if there are no rows.  Make it an empty array, to play nice with loops
-        if (is_null($result)) return array();
+        if (!$success) throw new Exception('Query failed: '.$sql.' with parameters: '.print_r ($parameters, true));
         
-        $return = array();
-        for ($i = 0; $i < $result->num_rows; $i++) {
-            $return[] = $result->fetch_assoc(); //Array of associative arrays on DSL-type queries
-        }
-        
-        $result->free();
-        
-        return $return;
+        if (substr($sql, 0, 6) == 'SELECT') return $statement->fetchAll(); // Return results of select queries
+        else return true; // ...and boolean true on other query types.
     }
 
     // Removes the room from a class to take it off the schedule
