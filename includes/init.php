@@ -9,7 +9,7 @@
 
 // Include and setup the database
 require('includes/db.class.php');
-$db=new db();
+$db = &Database::getInstance();
 
 // Include extra functions and start the session
 require('includes/functions.php');
